@@ -24,11 +24,15 @@ io.on('connection', (socket) => {
 io.on('connection',(socket)=>{
 	console.log('a user connected')
 	setInterval(()=>{
-		socket.emit('fromServer', {date: new Date(), usersNumber:connectedUsers.length})
+		socket.emit('liveUsers', {date: new Date(), usersNumber:connectedUsers.length})
 	}, 1000)
 })
 
-
+io.on('connection', (socket) => {
+	socket.on('fromClient', (msg) => {
+		io.emit('fromServer', msg)
+	})
+})
 
 
 require("dotenv").config()
