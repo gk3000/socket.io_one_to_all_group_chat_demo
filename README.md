@@ -1,6 +1,6 @@
 # socket.io 
 
-## one-to-all demo with mobile client
+## one-to-all demo global chat for all connected visitors
 
 Server emitting events to all connected clients
 
